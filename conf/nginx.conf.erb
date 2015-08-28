@@ -18,7 +18,6 @@ http {
 
  server {
                 resolver        8.8.8.8;
-                access_log      off;
                 listen  <%= ENV['PORT'] %>;
                 location / {
                         proxy_pass      http://www.jetbeta.com;
