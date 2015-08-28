@@ -1,2 +1,2 @@
-web: bin/start_ngnix
+web: bin/start_nginx
 
