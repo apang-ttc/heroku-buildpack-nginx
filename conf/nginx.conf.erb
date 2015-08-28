@@ -1,11 +1,21 @@
+worker_processes 1;
+daemon off;
+http {
+	gzip on;
+	gzip_comp_level 2;
+	gzip_min_length 512;
+
+	server_tokens off;
+
  server {
                 resolver        8.8.8.8;
                 access_log      off;
                 listen  [::]:80;
                 location / {
-                        proxy_pass      $scheme://$host$request_uri;
+                        proxy_pass      http://$host.jetbeta.com;
                         proxy_set_header Host $http_host;
                         proxy_buffers   256 4k;
                         proxy_max_temp_file_size        0k;
                         }
                 }
+}
