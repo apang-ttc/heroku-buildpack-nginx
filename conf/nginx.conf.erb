@@ -1,5 +1,12 @@
 worker_processes 1;
 daemon off;
+
+events {
+	use epoll;
+	accept_mutex on;
+	worker_connections 1024;
+}
+
 http {
 	gzip on;
 	gzip_comp_level 2;
